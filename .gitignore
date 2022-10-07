@@ -1,0 +1,7 @@
+# Java
+*.class
+*.jar
+
+# Node.JS
+node_modules/
+
