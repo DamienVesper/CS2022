@@ -18,20 +18,47 @@ class Main {
     
         double Top20Salary;
         double AverageSalary;
-    
+
+        // if (StateTax < 0.01 || StateTax > 0.99) {
+        //     System.out.println("StateTax can only contain a value between 0.01 and 0.99.");
+        //     return;
+        // } else if (TakeHomePayRate < 0.01 || TakeHomePayRate > 0.99) {
+        //     System.out.println("TakeHomePayRate can only contain a value between 0.01 and 0.99.");
+        //     return;
+        // }
+
         System.out.println("How many members are in the class?");
         ClassSize = inputDevice.nextDouble();
+        while (ClassSize < 1) {
+            System.out.println("There must be at least one member in the class.");
+            System.out.println("How many members are in the class?");
+            ClassSize = inputDevice.nextDouble();
+        }
 
         System.out.println("What is your career length (in years)?");
         CareerLength = inputDevice.nextDouble();
+        while (CareerLength < 1) {
+            System.out.println("Career length must be at least one year.");
+            System.out.println("What is your career length (in years)?");
+            CareerLength = inputDevice.nextDouble();
+        }
 
         System.out.println("What is the 20th percentile salary of the class?");
         Top20Salary = inputDevice.nextDouble();
+        while (Top20Salary < 1) {
+            System.out.println("Top 20% salary must be at least $1.00.");
+            System.out.println("What is the 20th percentile salary of the class?");
+            Top20Salary = inputDevice.nextDouble();
+        }
 
         System.out.println("What is the average salary of the class?");
         AverageSalary = inputDevice.nextDouble();
+        if (AverageSalary < 1) {
+            System.out.println("The average class salary must be at least $1.00.");
+            System.out.println("What is the average salary of the class?");
+            AverageSalary = inputDevice.nextDouble();
+        }
 
-        // Close input device when complete.
         inputDevice.close();
 
         // 20th percentile salary.
@@ -45,7 +72,7 @@ class Main {
         double T20ClassCareerPay = T20ClassAnnualPay * CareerLength;
 
         double T20ClassStateTax = T20IndividualStateTax * (ClassSize * Percentile20);
-        double T20ClassCareerTax = T20ClassAnnualPay * CareerLength;
+        double T20ClassCareerTax = T20ClassStateTax * CareerLength;
 
         // Average percentile salary.
         double IndividualAnnualPay = AverageSalary * TakeHomePayRate;
@@ -58,7 +85,7 @@ class Main {
         double ClassCareerPay = ClassAnnualPay * CareerLength;
 
         double ClassStateTax = IndividualStateTax * (ClassSize * Percentile80);
-        double ClassCareerTax = ClassAnnualPay * CareerLength;
+        double ClassCareerTax = ClassStateTax * CareerLength;
 
         System.out.println("------ TOP 20 PERCENT ------");
         System.out.println("[INDIVIDUAL] Annual Take Home Pay: $" + (double)Math.round(T20IndividualAnnualPay));
