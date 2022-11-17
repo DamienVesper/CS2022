@@ -5,8 +5,8 @@ class Main {
         Scanner inputDevice = new Scanner(System.in);
 
         // Tax rates.
-        final double StateTax = 0.045;
-        final double TakeHomePayRate = 0.55;
+        double StateTax = 0.045;
+        double TakeHomePayRate = 0.55;
 
         // Arbitrary constants.
         final double Percentile20 = 0.2;
@@ -19,13 +19,21 @@ class Main {
         double Top20Salary;
         double AverageSalary;
 
-        // if (StateTax < 0.01 || StateTax > 0.99) {
-        //     System.out.println("StateTax can only contain a value between 0.01 and 0.99.");
-        //     return;
-        // } else if (TakeHomePayRate < 0.01 || TakeHomePayRate > 0.99) {
-        //     System.out.println("TakeHomePayRate can only contain a value between 0.01 and 0.99.");
-        //     return;
-        // }
+        System.out.println("What is the state tax rate?");
+        StateTax = inputDevice.nextDouble();
+        while (StateTax < 0.01 || StateTax > 0.99) {
+            System.out.println("State tax rate must contain a value between 0.01 and 0.99.");
+            System.out.println("What is the state tax rate?");
+            TakeHomePayRate = inputDevice.nextDouble();
+        }
+        
+        System.out.println("What is the take home pay rate?");
+        TakeHomePayRate = inputDevice.nextDouble();
+        while (TakeHomePayRate < 0.01 || TakeHomePayRate > 0.99) {
+            System.out.println("Take-home pay rate must contain a value between 0.01 and 0.99.");
+            System.out.println("What is the take home pay rate?");
+            TakeHomePayRate = inputDevice.nextDouble();
+        }
 
         System.out.println("How many members are in the class?");
         ClassSize = inputDevice.nextDouble();
