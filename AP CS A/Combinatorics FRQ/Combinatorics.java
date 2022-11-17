@@ -1,4 +1,21 @@
 class Combinatorics {
+    public static void main (String args[]) {
+        tests();
+    }
+
+    /**
+     * Run tests.
+     */
+    public static void tests () {
+        // Prequisites: domain of n is [1, 12].
+        numCombinations(0, 0); // Expected value: 0
+        numCombinations(0, 1); // Expected value: 0
+        numCombinations(1, 3); // Expected value: 0
+        numCombinations(3, 1); // Expected value: 3
+        numCombinations(11, 7); // Expected value: 330
+        numCombinations(12, 3); // Expected value: 220
+    }
+
     /**
      * Find the factorial of a number.
      * @param n The given number.
@@ -18,11 +35,11 @@ class Combinatorics {
      */
     public static void numCombinations (int n, int r) {
         if (r > n) {
-            System.out.println(String.format("There are 0 ways of choosing %s items from %s choices", r, n));
+            System.out.println(String.format("There are 0 way(s) of choosing %s items from %s choices.", r, n));
             return;
         }
 
         int options = factorial(n) / (factorial(r) * factorial(n - r));
-        System.out.println(String.format("There are %s ways of choosing %s items from %s choices", options, r, n));
+        System.out.println(String.format("There are %s way(s) of choosing %s items from %s choices.", options, r, n));
     }
 }
