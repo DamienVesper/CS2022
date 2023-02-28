@@ -24,7 +24,8 @@ class Main {
         while (StateTax < 0.01 || StateTax > 0.99) {
             System.out.println("State tax rate must contain a value between 0.01 and 0.99.");
             System.out.println("What is the state tax rate?");
-            TakeHomePayRate = inputDevice.nextDouble();
+
+            StateTax = inputDevice.nextDouble();
         }
         
         System.out.println("What is the take home pay rate?");
@@ -32,6 +33,7 @@ class Main {
         while (TakeHomePayRate < 0.01 || TakeHomePayRate > 0.99) {
             System.out.println("Take-home pay rate must contain a value between 0.01 and 0.99.");
             System.out.println("What is the take home pay rate?");
+
             TakeHomePayRate = inputDevice.nextDouble();
         }
 
@@ -40,6 +42,7 @@ class Main {
         while (ClassSize < 1) {
             System.out.println("There must be at least one member in the class.");
             System.out.println("How many members are in the class?");
+
             ClassSize = inputDevice.nextDouble();
         }
 
@@ -48,6 +51,7 @@ class Main {
         while (CareerLength < 1) {
             System.out.println("Career length must be at least one year.");
             System.out.println("What is your career length (in years)?");
+
             CareerLength = inputDevice.nextDouble();
         }
 
@@ -56,6 +60,7 @@ class Main {
         while (Top20Salary < 1) {
             System.out.println("Top 20% salary must be at least $1.00.");
             System.out.println("What is the 20th percentile salary of the class?");
+
             Top20Salary = inputDevice.nextDouble();
         }
 
@@ -64,6 +69,7 @@ class Main {
         if (AverageSalary < 1) {
             System.out.println("The average class salary must be at least $1.00.");
             System.out.println("What is the average salary of the class?");
+
             AverageSalary = inputDevice.nextDouble();
         }
 
